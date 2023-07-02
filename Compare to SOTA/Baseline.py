@@ -348,7 +348,7 @@ for i in data_list:
     np.save('SRP-ADWIN' +" "+data_name+'.npy',c)
 
 
-    """comparison model learning"""
+    
     # Use the Extremely Fast Decision Tree (EFDT) model 
     name5 = "EFDT model"
     model5 = tree.ExtremelyFastDecisionTreeClassifier() # Define the model
@@ -365,7 +365,7 @@ for i in data_list:
     bm3 = ensemble.AdaptiveRandomForestClassifier(n_models=3,drift_detector=EDDM(),warning_detector=EDDM()) # ARF-EDDM
     bm4 = linear_model.PAClassifier() # OPA
 
-    name = "Proposed MSANA model"
+    name = "MSANA model"
     t, mm = MSANA(bm1, bm2, bm3, bm4, X_train, y_train, X_test, y_test) # Learn the model on the dataset
     acc_fig(t, mm, name) 
     a=np.array(mm)
